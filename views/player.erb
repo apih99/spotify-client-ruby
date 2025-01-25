@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spotify Web Player</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  <script src="/js/player.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2>Your Playlists</h2>
+      <ul id="playlist-list">
+        <% @playlists['items'].each do |playlist| %>
+          <li class="playlist-item" data-playlist-id="<%= playlist['id'] %>">
+            <% if playlist['images'] && !playlist['images'].empty? %>
+              <img src="<%= playlist['images'].first['url'] %>" alt="<%= playlist['name'] %>" class="playlist-image">
+            <% end %>
+            <span class="playlist-name"><%= playlist['name'] %></span>
+            <span class="playlist-tracks">(<%= playlist['tracks']['total'] %> tracks)</span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="player-container">
+      <div id="player">
+        <div class="now-playing">
+          <img id="current-track-image" src="" alt="Album Art">
+          <div class="track-info">
+            <div id="current-track-name"></div>
+            <div id="current-track-artist"></div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="previous" class="control-button">Previous</button>
+          <button id="play-pause" class="control-button">Play</button>
+          <button id="next" class="control-button">Next</button>
+        </div>
+
+        <div class="progress">
+          <div id="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 
