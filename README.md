@@ -23,8 +23,8 @@ A Ruby-based Spotify Web Client that allows you to browse and play your Spotify 
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd spotify-client
+git clone https://github.com/apih99/spotify-client-ruby.git
+cd spotify-client-ruby
 ```
 
 2. Install dependencies:
